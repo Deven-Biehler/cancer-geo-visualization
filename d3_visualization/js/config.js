@@ -1,0 +1,1 @@
+export var pieChartSize = 40; // Size of the pie chart markers
