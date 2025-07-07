@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Leaflet D3 Map</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <title>Choropleth Map with Regression Plot</title>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <style>
-        #map { 
-            height: 500px; 
-            width: 960px; 
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- <div id="map"></div> -->
-    <svg id="my_dataviz" width="1600" height="1200"></svg>
-    <script type="module" src="js/index.js"></script>
+    <div class="controls">
+        <label>Factor:</label>
+        <select id="factorSelect">
+            <option value="drinking">Drinking</option>
+            <option value="obesity">Obesity</option>
+            <option value="diabetes">Diabetes</option>
+            <option value="heart_disease">Heart Disease</option>
+            <option value="poverty">Poverty</option>
+            <option value="noHealthIns">No Health Insurance</option>
+            <option value="smoking" selected>Smoking</option>
+        </select>
+        
+        <label>Cancer Type:</label>
+        <select id="cancerSelect">
+            <option value="EsoValue">Esophageal</option>
+            <option value="KidneyValue" selected>Kidney</option>
+            <option value="LiverValue">Liver</option>
+            <option value="LungValue">Lung</option>
+            <option value="PancreaticValue">Pancreatic</option>
+            <option value="ProstateValue">Prostate</option>
+            <option value="SkinValue">Skin</option>
+        </select>
+    </div>
+    
+    <div class="container">
+        <div>
+            <h3>Choropleth Map</h3>
+            <svg id="map" width="600" height="400"></svg>
+        </div>
+        <div>
+            <h3>Regression Plot</h3>
+            <svg id="regression" width="500" height="400"></svg>
+        </div>
+    </div>
+
+    <div class="tooltip"></div>
+
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
